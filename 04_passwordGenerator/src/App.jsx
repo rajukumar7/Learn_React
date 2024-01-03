@@ -1,10 +1,12 @@
 import React from "react";
 import PasswordGenerator from "./PasswordGenerator";
+import PasswordGeneratorRedo from "./components/PasswordGeneratorRedo";
 
 function App() {
   return (
     <>
-      <PasswordGenerator />
+      <PasswordGeneratorRedo />
+      {/* <PasswordGenerator /> */}
     </>
   );
 }
