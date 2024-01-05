@@ -11,14 +11,13 @@ const PasswordGeneratorRedo = () => {
 
   const passwordGenerator = useCallback(() => {
     let pass = "";
-    let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstwxyz";
     if (numberAllowed) str += "0123456789";
-    if (charAllowed) str += "!@#$%^&*()_=+{}?~";
-    for (let i = 0; i < length; i++) {
+    if (charAllowed) str += "~!@#$%^&*()_+{}[]|<>.?";
+    for (let i = 1; i < lenght; i++) {
       let char = Math.floor(Math.random() * str.length + 1);
       pass += str.charAt(char);
     }
-
     setPassword(pass);
   }, [lenght, numberAllowed, charAllowed, setPassword]);
 
@@ -26,6 +25,11 @@ const PasswordGeneratorRedo = () => {
     passwordGenerator();
   }, [length, numberAllowed, charAllowed, passwordGenerator]);
 
+  const copyPasswordToClipboard = useCallback(() => {
+    passwordRef.current?.select();
+    passwordRef.current?.selectionRange(0, 100);
+    window.navigator.clipboard.writeText(password);
+  }, [password]);
   return (
     <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 my-8 py-2 text-orange-500 bg-gray-700">
       <h1 className="text-center text-white m-1">Password Generator</h1>
@@ -39,7 +43,10 @@ const PasswordGeneratorRedo = () => {
           ref={passwordRef}
         />
 
-        <button className="outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0 hover:bg-blue-800">
+        <button
+          onClick={copyPasswordToClipboard}
+          className="outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0 hover:bg-blue-800"
+        >
           Copy
         </button>
       </div>
@@ -57,12 +64,28 @@ const PasswordGeneratorRedo = () => {
         </div>
 
         <div className="flex items-center gap-x-1">
-          <input type="checkbox" className="cursor-pointer" />
+          <input
+            type="checkbox"
+            defaultChecked={numberAllowed}
+            id="numberInput"
+            onChange={() => {
+              setNumberAllowed((prev) => !prev);
+            }}
+            className="cursor-pointer"
+          />
           <label htmlFor="number">Number</label>
         </div>
 
         <div className="flex items-center gap-x-1">
-          <input type="checkbox" className="cursor-pointer" />
+          <input
+            type="checkbox"
+            defaultChecked={charAllowed}
+            id="characterInput"
+            onChange={() => {
+              setCharAllowed((prev) => !prev);
+            }}
+            className="cursor-pointer"
+          />
           <label htmlFor="Characters">Characters</label>
         </div>
       </div>
