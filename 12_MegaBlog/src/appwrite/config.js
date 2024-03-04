@@ -8,7 +8,7 @@ export class Service {
 
   cunstructor() {
     this.client
-      .setEndpoint(conf.appwriteURL)
+      .setEndpoint(conf.appwriteUrl)
       .setProject(conf.appwriteProjectId);
     this.databases = new Databases(this.client);
     this.bucket = new Storage(this.client);
@@ -23,7 +23,7 @@ export class Service {
         {
           title,
           content,
-          featuredImagem,
+          featuredImage,
           status,
           userId,
         }
