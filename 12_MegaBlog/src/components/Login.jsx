@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import authService from "../appwrite/auth";
 import { useForm } from "react-hook-form";
 
-const Login = () => {
+function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
@@ -18,7 +18,6 @@ const Login = () => {
       const session = await authService.login(data);
       if (session) {
         const userData = await authService.getCurrentUser();
-
         if (userData) dispatch(authLogin(userData));
         navigate("/");
       }
@@ -41,7 +40,7 @@ const Login = () => {
           Sign in to your account
         </h2>
         <p className="mt-2 text-center text-base text-black/60">
-          Don&apos;t have an account?&nbsp;
+          Don&apos;t have any account?&nbsp;
           <Link
             to="/signup"
             className="font-medium text-primary transition-all duration-200 hover:underline"
@@ -68,19 +67,19 @@ const Login = () => {
             <Input
               label="Password: "
               type="password"
-              placeholder="Enter password"
+              placeholder="Enter your password"
               {...register("password", {
                 required: true,
               })}
             />
             <Button type="submit" className="w-full">
-              Sign In
+              Sign in
             </Button>
           </div>
         </form>
       </div>
     </div>
   );
-};
+}
 
 export default Login;
