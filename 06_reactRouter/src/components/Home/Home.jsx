@@ -29,6 +29,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
+        {/* bg-gradient-to-r from-purple-600 to-indigo-800 h-screen */}
 
         <div className="absolute inset-0 w-full sm:my-20 sm:pt-1 pt-12 h-full ">
           <img

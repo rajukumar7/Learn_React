@@ -17,12 +17,15 @@ const Blog = () => {
     //   </p>
     // </div>
     <div className="relative flex items-top justify-center min-h-[700px] bg-white sm:items-center sm:pt-0">
-      <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
-        <div className="mt-8 overflow-hidden">
+      <div className="max-w-6xl mx-auto sm:px-4 lg:px-6">
+        <div className="mt-4 overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="p-6 mr-2 bg-gray-100 sm:rounded-lg">
+            <div className="p-6 mr-2 bg-gray-200 sm:rounded-lg">
               <h1 className="text-3xl sm:text-4xl text-gray-800 font-extrabold tracking-tight">
                 Coorg Travel
+              </h1>
+              <h1 class="bg-gradient-to-r from-gradientcolor1 to-gradientcolor2 bg-clip-text text-transparent text-3xl sm:text-4xl font-bold">
+                Hello World!
               </h1>
               <p className="text-normal text-lg sm:text-xl font-medium text-gray-600 mt-2">
                 This is my firat blog about the Coorg Hill Station
@@ -102,6 +105,40 @@ const Blog = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="flex gap-3 gap-4-xsm p-inline-4-xs p-inline-6-sm">
+        <a
+          href="#"
+          className="inline-flex items-center rounded bg-bgbtn px-6 pb-2 pt-2.5 text-xs font-medium leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"
+        >
+          <svg
+            class="fill-current w-4 h-4 mr-2"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+          >
+            <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+          </svg>
+          <span>Resume</span>
+        </a>
+      </div>{" "}
+      &nbsp;
+      <div className="flex justify-center items-center h-screen">
+        <a
+          href="#"
+          className="bg-green-500 text-white px-6 py-2 rounded font-bold hover:bg-green-600 transition duration-300"
+        >
+          Download Resume
+        </a>
+        {/* <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+          <svg
+            class="fill-current w-4 h-4 mr-2"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+          >
+            <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+          </svg>
+          <span>Download</span>
+        </button> */}
       </div>
     </div>
   );
